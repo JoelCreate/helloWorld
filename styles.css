@@ -32,7 +32,7 @@ img {
 
 input, .btn {
     font-family: 'Poppins', sans-serif;
-    width: 80%;
+    width: 100%;
     margin: 10px auto 5px auto;
     font-size: 1.05em;
 }
@@ -61,4 +61,13 @@ input:focus{
 .btn:hover {
     background: #be9ba1;
     cursor:pointer;  
+}
+
+.message-added {    
+    font-family: 'Poppins', sans-serif;
+    background: #CDC8E5;
+    color: #6959B1;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 10px;
 }
