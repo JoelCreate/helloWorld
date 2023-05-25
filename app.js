@@ -8,3 +8,7 @@ const appSettings {
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const messagesInDB = (databse, "messages")
+
+const inputFieldEl = document.getElementById("input-field")
+const sendButtonEl = document.getElementById("send-btn")
+const messagesEl = document.getElementById("messages")
