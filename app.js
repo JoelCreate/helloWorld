@@ -17,6 +17,18 @@ function clearInputField(){
     inputFieldEl.value = ""
 }
 
+function appendMessageToApp(message){
+    let messageID = message[0]
+    let messageValue = message[1]
+
+    let newEl = document.createElement("div")
+    newEl.className = "message-added"
+    newEl.textContent = messageValue
+
+    messagesEl.append(newEl)
+
+}
+
 sendButtonEl.addEventListener("click", function(){
     let inputValue = inputFieldEl.value
 
@@ -26,4 +38,14 @@ sendButtonEl.addEventListener("click", function(){
 
 })
 
-onValue(messagesInDB)
+onValue(messagesInDB, function(snapshot){
+    let messagesArray = Object.entries(snapshot.val())
+
+    for( let i = 0; i < messagesArray.length; i++ ) {
+        let currentMessage = messagesArray[i]
+
+        appendMessageToApp(currentMessage)
+    }
+
+})
+
