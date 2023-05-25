@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Poppins:wght@500&display=swap');
 
 html, body {
     margin: 0;
@@ -11,17 +11,15 @@ body {
 }
 
 h1 {
-    color: #EDE7D9;    
+    color: #4f9ec9;    
     font-family: 'Balsamiq Sans', cursive;
-    letter-spacing: 2px;
     padding: 0px;
-    margin: 0px;
+    margin: 0 auto;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     max-width: 320px;
     flex-grow: 1;
     margin: 25px auto;
@@ -32,8 +30,15 @@ img {
     margin: 0 auto;
 }
 
+input, .btn {
+    font-family: 'Poppins', sans-serif;
+    width: 80%;
+    margin: 10px auto 5px auto;
+    font-size: 1.05em;
+}
+
 input {
-    height: 50px;
+    height: 75px;
     border-radius: 10px;
     background: #eae8ff;
     border: none;
