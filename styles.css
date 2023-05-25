@@ -45,11 +45,20 @@ input {
     text-align: center;
 }
 
+input:focus{
+    outline: none;
+    border: 2px solid #D6BBC0;
+}
+
 .btn {
     background: #D6BBC0;
     color: #995C67;
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
-    flex-grow: 1;
+}
+
+.btn:hover {
+    background: #be9ba1;
+    cursor:pointer;  
 }
