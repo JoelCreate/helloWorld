@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #392f64;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+}
+
+img {
+    width: 150px;
+    margin: 0 auto;
+}
+
+input {
+    height: 150px;
+    border-radius: 10px;
+    background: #EDE7D9;
+    border: none;
+}
