@@ -34,7 +34,7 @@ function appendMessageToApp(message){
     function messageDisappear() {
         let exactLocationOfItemInDB = ref(database, `messages/${messageID}`)
         remove(exactLocationOfItemInDB)
-        messagesEl.classList.add('animate__animated', 'animate__bounceOut')
+        messagesEl.classList.add('animate__animated', 'animate__fadeOutUp')
     }
 
     setTimeout(messageDisappear, 2000)    

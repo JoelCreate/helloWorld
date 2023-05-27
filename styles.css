@@ -3,32 +3,41 @@
 html, body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: #392f64;
+    background: #5b9ba7;
     font-size: 16px;
 }
 
 h1 {
-    color: #4f9ec9;    
+    color: #fafafa;    
     font-family: 'Balsamiq Sans', cursive;
     padding: 0px;
     margin: 0 auto;
+    letter-spacing: 2px;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     max-width: 320px;
+    height: 100vh;
     flex-grow: 1;
     margin: 25px auto;
+    position: relative;
 }
 
 img {
-    width: 150px;
-    margin: 0 auto;
+    width: 200px;
+    margin: 0 auto 1em auto;
 }
+
+#input-container {
+    position: absolute;
+    bottom: 50px;
+} 
 
 input, .btn {
     font-family: 'Poppins', sans-serif;
@@ -40,33 +49,34 @@ input, .btn {
 input {
     height: 75px;
     border-radius: 10px;
-    background: #eae8ff;
+    background: #e8faff;
+    color: #505250;
     border: none;
     text-align: center;
 }
 
 input:focus{
     outline: none;
-    border: 2px solid #D6BBC0;
+    border: 2px solid #fafafa;
 }
 
 .btn {
-    background: #D6BBC0;
-    color: #995C67;
+    background: #6F584B;
+    color: #24160f;
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
 }
 
 .btn:hover {
-    background: #be9ba1;
+    background: #865f47;
     cursor:pointer;  
 }
 
 .message-added {    
     font-family: 'Poppins', sans-serif;
-    background: #CDC8E5;
-    color: #6959B1;
+    background: #e8faff;
+    color: #4685af;
     padding: 10px;
     margin: 10px auto;
     border-radius: 10px;
