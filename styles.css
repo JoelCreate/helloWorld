@@ -55,7 +55,7 @@ textarea {
     background: #e8faff;
     color: #505250;
     border: none;
-    text-align: center;
+    text-align: left;
 }
 
 textarea:focus{
@@ -76,15 +76,21 @@ textarea:focus{
     cursor:pointer;  
 }
 
-.message-added {    
+.message-added {        
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     font-family: 'Poppins', sans-serif;
     background: #e8faff;
     color: #4685af;
     max-width: 320px;
     height: auto;
-    display: flex;
-    flex-wrap: wrap;
     padding: 10px;
     margin: 10px auto;
     border-radius: 10px;
+}
+
+#name {
+    color: #FF570A;
+    font-weight: 700;
 }

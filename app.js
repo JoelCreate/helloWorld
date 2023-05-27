@@ -12,6 +12,7 @@ const messagesInDB = ref(database, "messages")
 const textareaEl = document.getElementById("textarea")
 const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
+const myName = prompt("Hi friend! What's you name?")
 
 function clearInputField() {
     textareaEl.value = ""
@@ -26,14 +27,17 @@ function appendMessageToApp(message){
     let messageValue = message[1]
 
     let newEl = document.createElement("div")
-    newEl.className = "message-added"
-    newEl.textContent = messageValue
-
+    newEl.innerHTML = `
+    <div class="message-added">
+        <div id="name">${myName}:</div>
+        <div id="message">${messageValue}</div>
+    </div>
+    `
     messagesEl.append(newEl)
 
     function messageDisappear() {
-        let exactLocationOfItemInDB = ref(database, `messages/${messageID}`)
-        remove(exactLocationOfItemInDB)
+        let exactMessageInDB = ref(database, `messages/${messageID}`)
+        remove(exactMessageInDB)
         messagesEl.classList.add('animate__animated', 'animate__fadeOutUp')
     }
 
