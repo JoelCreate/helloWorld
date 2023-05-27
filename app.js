@@ -13,8 +13,12 @@ const inputFieldEl = document.getElementById("input-field")
 const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
 
-function clearInputField(){
+function clearInputField() {
     inputFieldEl.value = ""
+}
+
+function clearMessageEl() {
+    messagesEl.innerHTML = ""
 }
 
 function appendMessageToApp(message){
@@ -41,11 +45,23 @@ sendButtonEl.addEventListener("click", function(){
 onValue(messagesInDB, function(snapshot){
     let messagesArray = Object.entries(snapshot.val())
 
+    clearMessageEl()
+
     for( let i = 0; i < messagesArray.length; i++ ) {
         let currentMessage = messagesArray[i]
 
         appendMessageToApp(currentMessage)
+
+        function messageDisappear() {
+            currentMessage.innerHTML = ""
+        }
+    
+        setTimeout(messageDisappear, 1000)
+
+
     }
+
+   
 
 })
 
