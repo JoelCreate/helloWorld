@@ -31,6 +31,14 @@ function appendMessageToApp(message){
 
     messagesEl.append(newEl)
 
+    function messageDisappear() {
+        let exactLocationOfItemInDB = ref(database, `messages/${messageID}`)
+        remove(exactLocationOfItemInDB)
+        messagesEl.classList.add('animate__animated', 'animate__bounceOut')
+    }
+
+    setTimeout(messageDisappear, 2000)    
+
 }
 
 sendButtonEl.addEventListener("click", function(){
@@ -51,13 +59,6 @@ onValue(messagesInDB, function(snapshot){
         let currentMessage = messagesArray[i]
 
         appendMessageToApp(currentMessage)
-
-        function messageDisappear() {
-            currentMessage.innerHTML = ""
-        }
-    
-        setTimeout(messageDisappear, 1000)
-
 
     }
 
