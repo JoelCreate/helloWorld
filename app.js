@@ -9,12 +9,12 @@ const app = initializeApp(appSettings)
 const database = getDatabase(app)
 const messagesInDB = ref(database, "messages")
 
-const inputFieldEl = document.getElementById("input-field")
+const textareaEl = document.getElementById("textarea")
 const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
 
 function clearInputField() {
-    inputFieldEl.value = ""
+    textareaEl.value = ""
 }
 
 function clearMessageEl() {
@@ -42,7 +42,7 @@ function appendMessageToApp(message){
 }
 
 sendButtonEl.addEventListener("click", function(){
-    let inputValue = inputFieldEl.value
+    let inputValue = textareaEl.value
 
     push(messagesInDB, inputValue)
 
