@@ -17,7 +17,7 @@ h1 {
     color: #fafafa;    
     font-family: 'Balsamiq Sans', cursive;
     padding: 0px;
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
     letter-spacing: 2px;
 }
 
@@ -39,7 +39,7 @@ img {
 
 #messages-container {
     position: absolute;
-    bottom: 100px;
+    bottom: 50px;
     left: 0;
 } 
 
