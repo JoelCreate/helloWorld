@@ -15,13 +15,17 @@ const messagesEl = document.getElementById("messages")
 const myName = prompt("Hi friend! What's you name?")
 
 
-sendButtonEl.addEventListener("click", function(){
+sendButtonEl.addEventListener("keypress", function(e){
     let inputValue = textareaEl.value
 
-    push(messagesInDB, inputValue)
+    if(e.key ===" Enter"){
+        push(messagesInDB, inputValue)
 
-    clearInputField()
+        clearInputField()
+    }
 })
+
+
 
 onValue(messagesInDB, function(snapshot){
     let messagesArray = Object.entries(snapshot.val())
