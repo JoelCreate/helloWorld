@@ -15,14 +15,12 @@ const messagesEl = document.getElementById("messages")
 const myName = prompt("Hi friend! What's you name?")
 
 
-sendButtonEl.addEventListener("keypress", function(e){
+sendButtonEl.addEventListener("click", function(){
     let inputValue = textareaEl.value
 
-    if(e.key ===" Enter"){
-        push(messagesInDB, inputValue)
+    push(messagesInDB, inputValue)
 
-        clearInputField()
-    }
+    clearInputField()
 })
 
 
@@ -40,6 +38,16 @@ onValue(messagesInDB, function(snapshot){
         appendMessageToApp(currentMessage)
 
     }  
+})
+
+firebase.database().ref("messages").on("child_added", function(snapshot){
+    let html = ""
+    html += "<div>"
+        html += snapshot.val().sender + ": " + snapshot.val().message
+    html += "</div>"
+
+    messagesEl.innerHTML += html
+
 })
 
 
