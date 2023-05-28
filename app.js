@@ -14,36 +14,6 @@ const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
 const myName = prompt("Hi friend! What's you name?")
 
-function clearInputField() {
-    textareaEl.value = ""
-}
-
-function clearMessageEl() {
-    messagesEl.innerHTML = ""
-}
-
-function appendMessageToApp(message){
-    let messageID = message[0]
-    let messageValue = message[1]
-
-    let newEl = document.createElement("div")
-    newEl.innerHTML = `
-    <div class="message-added">
-        <div id="name">${myName}:</div>
-        <div id="message">${messageValue}</div>
-    </div>
-    `
-    messagesEl.append(newEl)
-
-    function messageDisappear() {
-        let exactMessageInDB = ref(database, `messages/${messageID}`)
-        remove(exactMessageInDB)
-        messagesEl.classList.add('animate__animated', 'animate__fadeOutUp')
-    }
-
-    setTimeout(messageDisappear, 2000)    
-
-}
 
 sendButtonEl.addEventListener("click", function(){
     let inputValue = textareaEl.value
@@ -51,7 +21,6 @@ sendButtonEl.addEventListener("click", function(){
     push(messagesInDB, inputValue)
 
     clearInputField()
-
 })
 
 onValue(messagesInDB, function(snapshot){
@@ -61,12 +30,44 @@ onValue(messagesInDB, function(snapshot){
 
     for( let i = 0; i < messagesArray.length; i++ ) {
         let currentMessage = messagesArray[i]
+        let currentMessageID = [0]
+        let currentMessageValue = [1]
 
         appendMessageToApp(currentMessage)
 
-    }
-
-   
-
+    }  
 })
 
+
+function clearMessageEl() {
+    messagesEl.innerHTML = ""
+}
+
+
+function clearInputField() {
+    textareaEl.value = ""
+}
+
+
+function appendMessageToApp(message){
+    let messageID = message[0]
+    let messageValue = message[1]
+
+    let newEl = document.createElement("div")
+    //newEl.classList.add('animate__animated', 'animate__fadeOutUp')
+    newEl.innerHTML = `
+    <div class="message-added">
+        <div id="name">${myName}:</div>
+        <div id="message">${messageValue}</div>
+    </div>
+    `
+
+    function messageDisappear() {
+        let exactMessageInDB = ref(database, `messages/${messageID}`)
+        remove(exactMessageInDB)               
+    }
+
+    setTimeout(messageDisappear, 3000)  
+
+    messagesEl.append(newEl)
+}
