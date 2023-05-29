@@ -14,6 +14,14 @@ const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
 let myName = prompt("Hi friend! What's you name?")
 
+const setRandomColorOfName = () => {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16)
+    document.getElementById("name").style.color = "#" + randomColor
+    color.innerHTML = "#" + randomColor
+}
+
+setRandomColorOfName()
+
 sendButtonEl.addEventListener("click", function(){
     let textValue = textareaEl.value
 
@@ -45,7 +53,7 @@ function clearTextArea() {
     textareaEl.value = ""
 }
 
-function messageDisappearinDB() {   
+function messageDisappearInDB() {   
     //remove from DB
     let exactMessageInDB = ref(database, "messages")   
     remove(exactMessageInDB)  
@@ -56,5 +64,5 @@ function messageDisappearinDB() {
 //     messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
 // }
 
-// setTimeout(messageDisappearInApp, 3000) 
-messageDisappearinDB()
+setTimeout(messageDisappearInDB, 3000) 
+
