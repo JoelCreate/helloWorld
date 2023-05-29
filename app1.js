@@ -29,25 +29,12 @@ sendButtonEl.addEventListener("click", function(){
 onValue(messagesInDB, function(snapshot){
     let messagesArray = Object.entries(snapshot.val())
 
-    let sender = snapshot.val().sender
-    let newMessage = snapshot.val().message
-    
-    let newEl = document.createElement("div")
-        newEl.innerHTML = `
-        <div class="message-added">
-            <div class="name">${sender}:</div>
-            <div id="message">${newMessage}</div>
-        </div>
-        `
-
-    clearMessageEl()
-    
-    messagesEl.append(newEl) 
-    
-    // for( let i = 0; i < messagesArray.length; i++ ) {
-    //     let currentMessage = messagesArray[i]
-    //     removeMessage(currentMessage)
-    // }  
+    clearMessageEl()   
+        
+    for( let i = 0; i < messagesArray.length; i++ ) {
+        let currentMessage = messagesArray[i]
+        appendMessageToApp(currentMessage)
+    }  
  
 })
 
@@ -60,9 +47,21 @@ function clearMessageEl() {
 }
 
 
-function removeMessage(message){
+function appendMessageToApp(message){
     let messageID = message[0]
     let messageValue = message[1]
+    
+    let sender = snapshot.val().sender
+    let newMessage = snapshot.val().message
+    
+    let newEl = document.createElement("div")
+        newEl.innerHTML = `
+        <div class="message-added">
+            <div class="name">${sender}:</div>
+            <div id="message">${newMessage}</div>
+        </div>
+        `
+    messagesEl.append(newEl) 
     
     function messageDisappear() {      
         let exactMessageInDB = ref(database, `messages/${messageID}`)   
@@ -75,7 +74,7 @@ function removeMessage(message){
     setTimeout(messageDisappear, 3000) 
 }
 
-removeMessage()
+
 
 // function messageDisappearInApp(){
 //     let messageAdded = document.querySelector('.message-added')
