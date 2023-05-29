@@ -22,7 +22,6 @@ sendButtonEl.addEventListener("click", function(message){
         message: textValue
     })
 
-
     clearTextArea()
 })
 
@@ -46,19 +45,15 @@ function clearTextArea() {
     textareaEl.value = ""
 }
 
+function messageDisappear(message) {
+    let messageID = message[0]
+    //remove from DB
+    let exactMessageInDB = ref(database, `messages/${messageID}`)   
+    remove(exactMessageInDB)  
 
-// function appendMessageToApp(message){
-//     let messageID = message[0]
-//     let messageValue = message[1]
+    // disappear from app
+    let messageAdded = document.querySelector('.message-added')
+    messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
+}
 
-//     let newEl = document.createElement("div")
-//     newEl.innerHTML = `
-//     <div class="message-added">
-//         <div id="name">${myName}:</div>
-//         <div id="message">${messageValue}</div>
-//     </div>
-//     `
-//     messagesEl.append(newEl)
-// }
-
-appendMessageToApp()
+setTimeout(messageDisappear, 3000) 
