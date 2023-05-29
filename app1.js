@@ -37,7 +37,9 @@ onValue(messagesInDB, function(snapshot){
             <div id="message">${newMessage}</div>
         </div>
         `
-        messagesEl.append(newEl) 
+    messagesEl.append(newEl) 
+    
+    removeMessage()
  
 })
 
@@ -62,7 +64,7 @@ function removeMessage(message){
     setTimeout(messageDisappear, 3000) 
 }
 
-removeMessage()
+
 
 // function messageDisappearInApp(){
 //     let messageAdded = document.querySelector('.message-added')
