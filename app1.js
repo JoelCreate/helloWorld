@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://helloworld-c09a1-default-rtdb.firebaseio.com/"
@@ -14,15 +14,19 @@ const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
 let myName = prompt("Hi friend! What's you name?")
 
-sendButtonEl.addEventListener("click", function(){
+sendButtonEl.addEventListener("click", function(message){
     let textValue = textareaEl.value
-   
-    firebase.database().ref("messages").push().set({
-        "sender": myName,
-        "message": textValue
-    })
+    let messageID = message[0]
 
-    clearInputField()
+    push(messagesInDB, textValue)
+    set(messageID, myName )
+   
+    // firebase.database().ref("messages").push().set({
+    //     "sender": myName,
+    //     "message": textValue
+    // })
+
+    //clearInputField()
 })
 
 function sendMessage(){
