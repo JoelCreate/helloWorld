@@ -94,5 +94,6 @@ textarea:focus{
 }
 
 .name {
+    color: #FF570A;
     font-weight: 700;
 }
