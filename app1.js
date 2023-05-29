@@ -14,10 +14,6 @@ const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
 let myName = prompt("Hi friend! What's you name?")
 
-const randomColor = Math.floor(Math.random()*16777215).toString(16)
-const userName = document.querySelector(".name")
-
-
 sendButtonEl.addEventListener("click", function(){
     let textValue = textareaEl.value
 
@@ -49,10 +45,7 @@ function clearTextArea() {
     textareaEl.value = ""
 }
 
-function randomColorOfName() {
-    userName.style.color = "#" + randomColor
-}
-randomColorOfName()
+
 
 function messageDisappearInDB() {   
     //remove from DB
