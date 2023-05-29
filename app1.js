@@ -45,10 +45,11 @@ function clearTextArea() {
     textareaEl.value = ""
 }
 
-function messageDisappear() {  
+function messageDisappear(message) {  
+    let messageID = message[0]
 
     //remove from DB
-    let exactMessageInDB = ref(database, `messages/message`)   
+    let exactMessageInDB = ref(database, `messages/${messageID}`)   
     remove(exactMessageInDB)  
 
     // disappear from app
