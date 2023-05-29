@@ -24,7 +24,6 @@ sendButtonEl.addEventListener("click", function(){
 })
 
 
-
 onValue(messagesInDB, function(snapshot){
     let messagesArray = Object.entries(snapshot.val())
 
@@ -40,19 +39,19 @@ onValue(messagesInDB, function(snapshot){
     }  
 })
 
-firebase.database().ref("messages").on("child_added", function(snapshot){
-    let html = ""
-    html += "<div>"
-        html += snapshot.val().sender + ": " + snapshot.val().message
-    html += "</div>"
+// firebase.database().ref("messages").on("child_added", function(snapshot){
+//     let html = ""
+//     html += "<div>"
+//         html += snapshot.val().sender + ": " + snapshot.val().message
+//     html += "</div>"
 
-    messagesEl.innerHTML += html
+//     messagesEl.innerHTML += html
 
-})
+// })
 
 
 function clearMessageEl() {
-    messagesEl.innerHTML = ""
+    messagesEl.innerHTML = ""   
 }
 
 
@@ -61,25 +60,30 @@ function clearInputField() {
 }
 
 
+
 function appendMessageToApp(message){
     let messageID = message[0]
     let messageValue = message[1]
 
     let newEl = document.createElement("div")
-    //newEl.classList.add('animate__animated', 'animate__fadeOutUp')
     newEl.innerHTML = `
     <div class="message-added">
         <div id="name">${myName}:</div>
         <div id="message">${messageValue}</div>
     </div>
     `
+    messagesEl.append(newEl)
 
-    function messageDisappear() {
-        let exactMessageInDB = ref(database, `messages/${messageID}`)
-        remove(exactMessageInDB)               
+    function messageDisappear() {      
+        let exactMessageInDB = ref(database, `messages/${messageID}`)   
+        remove(exactMessageInDB)  
+        //messagesEl.classList.add('animate__animated', 'animate__fadeOutUp')             
+        
+        let messageAdded = document.querySelector('.message-added')
+        messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
+
     }
 
-    setTimeout(messageDisappear, 3000)  
+    setTimeout(messageDisappear, 3000) 
 
-    messagesEl.append(newEl)
 }
