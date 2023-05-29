@@ -23,7 +23,7 @@ sendButtonEl.addEventListener("click", function(message){
     })
 
 
-    //clearInputField()
+    clearTextArea()
 })
 
 
@@ -42,6 +42,9 @@ onValue(messagesInDB, function(snapshot){
     
 })
 
+function clearTextArea() {
+    textareaEl.value = ""
+}
 
 
 // function appendMessageToApp(message){
