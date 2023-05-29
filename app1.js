@@ -47,17 +47,24 @@ function clearTextArea() {
 
 
 
-function messageDisappearInDB() {   
-    //remove from DB
-    let messageInDB = ref(database, 'messages/')   
-    remove(messageInDB)  
+function removeMessage(message){
+    let messageID = message[0]
+    let messageValue = message[1]
+    
+    function messageDisappear() {      
+        let exactMessageInDB = ref(database, `messages/${messageID}`)   
+        remove(exactMessageInDB)  
+        //messagesEl.classList.add('animate__animated', 'animate__fadeOutUp')             
+        
+        let messageAdded = document.querySelector('.message-added')
+        messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
+    }
+    setTimeout(messageDisappear, 3000) 
 }
+
+removeMessage()
 
 // function messageDisappearInApp(){
 //     let messageAdded = document.querySelector('.message-added')
 //     messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
 // }
-
-
-setTimeout(messageDisappearInDB, 3000) 
-
