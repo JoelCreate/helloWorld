@@ -48,7 +48,7 @@ function clearTextArea() {
 function messageDisappear() {  
 
     //remove from DB
-    let exactMessageInDB = ref(database, `messages`)   
+    let exactMessageInDB = ref(database, `messages/message`)   
     remove(exactMessageInDB)  
 
     // disappear from app
