@@ -46,8 +46,6 @@ onValue(messagesInDB, function(snapshot){
     
     for( let i = 0; i < messagesArray.length; i++ ) {
         let currentMessage = messagesArray[i]
-        let currentMessageID = [0]
-        let currentMessageValue = [1]  
         removeMessage(currentMessage)
     }  
  
