@@ -39,15 +39,16 @@ onValue(messagesInDB, function(snapshot){
     }  
 })
 
-// firebase.database().ref("messages").on("child_added", function(snapshot){
-//     let html = ""
-//     html += "<div>"
-//         html += snapshot.val().sender + ": " + snapshot.val().message
-//     html += "</div>"
+firebase.database().ref("messages-incoming").on("child_added", function(snapshot){
+    const messagesImconing = document.getElementById("messages-incoming")
+    let html = ""
+    html += "<div>"
+        html += snapshot.val().message
+    html += "</div>"
 
-//     messagesEl.innerHTML += html
+    messagesImconing.innerHTML += html
 
-// })
+})
 
 
 function clearMessageEl() {
@@ -58,8 +59,6 @@ function clearMessageEl() {
 function clearInputField() {
     textareaEl.value = ""
 }
-
-
 
 function appendMessageToApp(message){
     let messageID = message[0]
