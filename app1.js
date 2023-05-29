@@ -49,14 +49,15 @@ function clearTextArea() {
 
 function messageDisappearInDB() {   
     //remove from DB
-    let exactMessageInDB = ref(database, "messages")   
-    remove(exactMessageInDB)  
+    let messageInDB = ref(database, 'messages/')   
+    remove(messageInDB)  
 }
 
 // function messageDisappearInApp(){
 //     let messageAdded = document.querySelector('.message-added')
 //     messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
 // }
+
 
 setTimeout(messageDisappearInDB, 3000) 
 
