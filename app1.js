@@ -18,7 +18,7 @@ sendButtonEl.addEventListener("click", function(){
     let textValue = textareaEl.value
     let sender = myName
 
-    push(messagesInDB, textValue, sender)
+    push(messagesInDB, textValue + sender)
 
     clearInputField()
 })
