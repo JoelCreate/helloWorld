@@ -22,20 +22,26 @@ sendButtonEl.addEventListener("click", function(message){
         message: textValue
     })
 
-    // push(messagesInDB, textValue)
-    // set(messageID, myName )
-   
-    // firebase.database().ref("messages").push().set({
-    //     "sender": myName,
-    //     "message": textValue
-    // })
 
     //clearInputField()
 })
 
-function sendMessage(){
 
-}
+onValue(messagesInDB, function(snapshot){
+    let sender = snapshot.val().sender
+    let newMessage = snapshot.val().message
+
+    let newEl = document.createElement("div")
+        newEl.innerHTML = `
+        <div class="message-added">
+            <div id="name">${sender}:</div>
+            <div id="message">${newMessage}</div>
+        </div>
+        `
+        messagesEl.append(newEl)
+    
+})
+
 
 
 // function appendMessageToApp(message){
@@ -51,3 +57,5 @@ function sendMessage(){
 //     `
 //     messagesEl.append(newEl)
 // }
+
+appendMessageToApp()
