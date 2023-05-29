@@ -44,10 +44,10 @@ onValue(messagesInDB, function(snapshot){
     
     messagesEl.append(newEl) 
     
-    for( let i = 0; i < messagesArray.length; i++ ) {
-        let currentMessage = messagesArray[i]
-        removeMessage(currentMessage)
-    }  
+    // for( let i = 0; i < messagesArray.length; i++ ) {
+    //     let currentMessage = messagesArray[i]
+    //     removeMessage(currentMessage)
+    // }  
  
 })
 
@@ -75,7 +75,7 @@ function removeMessage(message){
     setTimeout(messageDisappear, 3000) 
 }
 
-
+removeMessage()
 
 // function messageDisappearInApp(){
 //     let messageAdded = document.querySelector('.message-added')
