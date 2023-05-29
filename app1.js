@@ -45,16 +45,20 @@ function clearTextArea() {
     textareaEl.value = ""
 }
 
-function messageDisappear(message) {  
+function messageDisappearinDB(message) {  
     let messageID = message[0]
 
     //remove from DB
     let exactMessageInDB = ref(database, `messages/${messageID}`)   
     remove(exactMessageInDB)  
 
-    // disappear from app
+    
+}
+
+function messageDisappearInApp(){
     let messageAdded = document.querySelector('.message-added')
     messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
 }
 
-setTimeout(messageDisappear, 3000) 
+setTimeout(messageDisappearInApp, 3000) 
+messageDisappearinDB()
