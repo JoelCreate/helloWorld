@@ -28,7 +28,7 @@ sendButtonEl.addEventListener("click", function(){
 
 onValue(messagesInDB, function(snapshot){
     let messagesArray = Object.entries(snapshot.val())
-    
+
     let sender = snapshot.val().sender
     let newMessage = snapshot.val().message
 
@@ -42,7 +42,9 @@ onValue(messagesInDB, function(snapshot){
     messagesEl.append(newEl) 
     
     for( let i = 0; i < messagesArray.length; i++ ) {
-        let currentMessage = messagesArray[i]  
+        let currentMessage = messagesArray[i]
+        let currentMessageID = [0]
+        let currentMessageValue = [1]  
         removeMessage(currentMessage)
     }  
  
