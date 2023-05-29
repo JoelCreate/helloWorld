@@ -93,6 +93,6 @@ textarea:focus{
     border-radius: 10px;
 }
 
-#name {
+.name {
     font-weight: 700;
 }

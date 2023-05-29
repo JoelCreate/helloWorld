@@ -15,12 +15,8 @@ const messagesEl = document.getElementById("messages")
 let myName = prompt("Hi friend! What's you name?")
 
 const randomColor = Math.floor(Math.random()*16777215).toString(16)
-const userName = document.getElementById("name")
+const userName = document.querySelector(".name")
 
-function randomColorOfName() {
-    userName.style.color = "#" + randomColor
-}
-randomColorOfName()
 
 sendButtonEl.addEventListener("click", function(){
     let textValue = textareaEl.value
@@ -41,7 +37,7 @@ onValue(messagesInDB, function(snapshot){
     let newEl = document.createElement("div")
         newEl.innerHTML = `
         <div class="message-added">
-            <div id="name">${sender}:</div>
+            <div class="name">${sender}:</div>
             <div id="message">${newMessage}</div>
         </div>
         `
@@ -52,6 +48,11 @@ onValue(messagesInDB, function(snapshot){
 function clearTextArea() {
     textareaEl.value = ""
 }
+
+function randomColorOfName() {
+    userName.style.color = "#" + randomColor
+}
+randomColorOfName()
 
 function messageDisappearInDB() {   
     //remove from DB
