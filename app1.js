@@ -31,7 +31,7 @@ onValue(messagesInDB, function(snapshot){
 
     let sender = snapshot.val().sender
     let newMessage = snapshot.val().message
-
+    
     let newEl = document.createElement("div")
         newEl.innerHTML = `
         <div class="message-added">
@@ -39,6 +39,9 @@ onValue(messagesInDB, function(snapshot){
             <div id="message">${newMessage}</div>
         </div>
         `
+
+    clearMessageEl()
+    
     messagesEl.append(newEl) 
     
     for( let i = 0; i < messagesArray.length; i++ ) {
@@ -54,6 +57,9 @@ function clearTextArea() {
     textareaEl.value = ""
 }
 
+function clearMessageEl() {
+    messagesEl.innerHTML = ""   
+}
 
 
 function removeMessage(message){
