@@ -16,13 +16,11 @@ let myName = prompt("Hi friend! What's you name?")
 
 sendButtonEl.addEventListener("click", function(){
     let textValue = textareaEl.value
-    let sender = myName
-    let messageID = message[0]
-    let locationInDB = ref(database, `messages/${messageID}`)
-    
-
-    push(messagesInDB, textValue)
-    push(locationInDB, sender)
+   
+    firebase.database().ref("messages").push().set({
+        "sender": myName,
+        "message": textValue
+    })
 
     clearInputField()
 })
