@@ -14,7 +14,7 @@ const sendButtonEl = document.getElementById("send-btn")
 const messagesEl = document.getElementById("messages")
 let myName = prompt("Hi friend! What's you name?")
 
-sendButtonEl.addEventListener("click", function(message){
+sendButtonEl.addEventListener("click", function(){
     let textValue = textareaEl.value
 
     set(messagesInDB, {
@@ -37,28 +37,24 @@ onValue(messagesInDB, function(snapshot){
             <div id="message">${newMessage}</div>
         </div>
         `
-        messagesEl.append(newEl)
-    
+        messagesEl.append(newEl) 
+ 
 })
 
 function clearTextArea() {
     textareaEl.value = ""
 }
 
-function messageDisappearinDB(message) {  
-    let messageID = message[0]
-
+function messageDisappearinDB() {   
     //remove from DB
-    let exactMessageInDB = ref(database, `messages/${messageID}`)   
+    let exactMessageInDB = ref(database, "messages")   
     remove(exactMessageInDB)  
-
-    
 }
 
-function messageDisappearInApp(){
-    let messageAdded = document.querySelector('.message-added')
-    messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
-}
+// function messageDisappearInApp(){
+//     let messageAdded = document.querySelector('.message-added')
+//     messageAdded.classList.add('animate__animated', 'animate__fadeOutUp', 'animate__faster')
+// }
 
-setTimeout(messageDisappearInApp, 3000) 
+// setTimeout(messageDisappearInApp, 3000) 
 messageDisappearinDB()
